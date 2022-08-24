@@ -69,14 +69,7 @@ export class MetaflowServiceAddOn extends blueprints.HelmAddOn {
     const metaflowServicePolicyDocument = new PolicyDocument({
       statements: [
         new PolicyStatement({
-          actions: [
-            'ecr:GetAuthorizationToken',
-            'ecr:BatchCheckLayerAvailability',
-            'ecr:GetDownloadUrlForLayer',
-            'ecr:BatchGetImage',
-            'logs:CreateLogStream',
-            'logs:PutLogEvents',
-          ],
+          actions: ['logs:CreateLogStream', 'logs:PutLogEvents'],
           effect: Effect.ALLOW,
           resources: ['*'],
         }),
